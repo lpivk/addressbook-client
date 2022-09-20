@@ -17,6 +17,7 @@ export const App = () => {
 
     return { user, login, logout };
   }, [user]);
+
   return (
     <ReactQueryProvider>
       <ChakraProvider>

@@ -7,11 +7,11 @@ import {
   ResetPasswordCredentials,
 } from '../types';
 
-const local = 'http://localhost:6000/api/';
+const url: string = process.env.API_URL!;
 
 const login = async (credentials: LoginCredentials) => {
   const response: AxiosResponse<User> = await axios.post(
-    local + 'auth/login',
+    url + 'auth/login',
     credentials
   );
   return response.data;
@@ -19,7 +19,7 @@ const login = async (credentials: LoginCredentials) => {
 
 const signup = async (credentials: SignupCredentials) => {
   const response: AxiosResponse<{ message: string }> = await axios.post(
-    local + 'auth/signup',
+    url + 'auth/signup',
     credentials
   );
   return response.data;
@@ -27,7 +27,7 @@ const signup = async (credentials: SignupCredentials) => {
 
 const forgotPassword = async (credentials: ForgotPasswordCredentials) => {
   const response: AxiosResponse<{ message: string }> = await axios.post(
-    local + 'auth/forgot-password',
+    url + 'auth/forgot-password',
     credentials
   );
   return response.data;
@@ -35,7 +35,7 @@ const forgotPassword = async (credentials: ForgotPasswordCredentials) => {
 
 const activateAccount = async (activationToken: string | undefined) => {
   const response: AxiosResponse<{ message: string }> = await axios.post(
-    local + 'auth/activate',
+    url + 'auth/activate',
     { activationToken }
   );
   return response.data;
@@ -49,7 +49,7 @@ const resetPassword = async ({
   credentials: ResetPasswordCredentials;
 }) => {
   const response: AxiosResponse<{ message: string }> = await axios.post(
-    local + 'auth/reset-password',
+    url + 'auth/reset-password',
     { accessToken, password: credentials.password }
   );
   return response.data;
@@ -57,7 +57,7 @@ const resetPassword = async ({
 
 const sendActivationEmail = async (email: string | undefined) => {
   const response: AxiosResponse<{ message: string }> = await axios.post(
-    local + 'auth/activate/send-email',
+    url + 'auth/activate/send-email',
     { email }
   );
   return response.data;

@@ -16,8 +16,6 @@ export const Contacts = () => {
   const toast = useToast();
   const { user } = useContext(AuthContext);
 
-  console.log(user?.details._id);
-
   const {
     data: fetchedContacts,
     isFetching,

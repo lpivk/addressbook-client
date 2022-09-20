@@ -7,7 +7,7 @@ import {
   ResetPasswordCredentials,
 } from '../types';
 
-const url: string = process.env.API_URL!;
+const url = 'https://nwp-addressbook-server.herokuapp.com/api/';
 
 const login = async (credentials: LoginCredentials) => {
   const response: AxiosResponse<User> = await axios.post(

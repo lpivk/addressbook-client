@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 
 import { Contact, NewContact } from '../../../shared/types';
 
-const url: string = process.env.API_URL!;
+const url = 'https://nwp-addressbook-server.herokuapp.com/api/';
 
 const getContacts = async (userId: string | undefined) => {
   const response: AxiosResponse<Contact[]> = await axios.get(url + 'contacts', {

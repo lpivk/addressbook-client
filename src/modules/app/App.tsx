@@ -1,3 +1,12 @@
+import { ReactQueryProvider } from './providers/ReactQueryProvider';
+import { MantineProvider } from './providers/MantineProvider';
+
 export const App = () => {
-  return <div>App</div>;
+  return (
+    <ReactQueryProvider>
+      <MantineProvider>
+        <div>App</div>
+      </MantineProvider>
+    </ReactQueryProvider>
+  );
 };
